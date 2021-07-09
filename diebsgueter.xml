@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<diebsgueter>
+    <diebsgut id="1">
+        <name>Leuchter</name>
+        <wert>1</wert>
+    </diebsgut>
+    <diebsgut id="2">
+        <name>Uhr</name>
+        <wert>0.5</wert>
+    </diebsgut> 
+   <diebsgut id="3">
+        <name>Kristall</name>
+        <wert>35</wert>
+    </diebsgut> 
+   <diebsgut id="4">
+        <name>Gold</name>
+        <wert>25000</wert>
+    </diebsgut>  
+  <diebsgut id="5">
+        <name>Bargeld</name>
+        <wert>2530</wert>
+    </diebsgut>
+</diebsgueter>
