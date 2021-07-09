@@ -17,5 +17,9 @@ public class Diebsgut {
     public String toString() {
         return "[" + diebsgutName + ", "+ wert + "]";
     }
+	
+	public Double getWert() {
+		return this.wert;
+	}
 		
 }
