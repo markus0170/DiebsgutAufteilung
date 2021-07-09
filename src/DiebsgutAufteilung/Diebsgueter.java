@@ -22,29 +22,33 @@ public class Diebsgueter {
 	private Document document;
 	private File eingabeXML;
 	
-	private List<Diebsgut> diebsgueter;
+	private List<Diebsgut> diebsgueter = new ArrayList<>();
 	
 	Diebsgueter(String dateiname)   {
-		diebsgueter = new ArrayList<>();
 		eingabeXML = new File(dateiname);
-try {
-		readData();
+	try {
+			readData();
+		}
+	    
+	catch (ParserConfigurationException e) {
+		e.printStackTrace();
+		}
+	catch (SAXException e) {
+		e.printStackTrace();
+		}
+	catch (IOException e) {
+		e.printStackTrace();
+		}
 	}
-catch (ParserConfigurationException e) {
-	e.printStackTrace();
-	}
-catch (SAXException e) {
-	e.printStackTrace();
-	}
-catch (IOException e) {
-	e.printStackTrace();
-	}
-}
 	
 	public void printData()
 	{
 		for (Diebsgut stueck: diebsgueter)
             System.out.println(stueck.toString());
+	}
+	
+	public List<Diebsgut> getDiesbgueter() {
+		return diebsgueter;
 	}
 	
 	private void readData() throws ParserConfigurationException,
