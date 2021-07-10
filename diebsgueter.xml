@@ -2,7 +2,7 @@
 <diebsgueter>
     <diebsgut id="1">
         <name>Leuchter</name>
-        <wert>1</wert>
+        <wert>19</wert>
     </diebsgut>
     <diebsgut id="2">
         <name>Uhr</name>
@@ -14,10 +14,10 @@
     </diebsgut> 
    <diebsgut id="4">
         <name>Gold</name>
-        <wert>25000</wert>
+        <wert>25</wert>
     </diebsgut>  
   <diebsgut id="5">
         <name>Bargeld</name>
-        <wert>2530</wert>
+        <wert>30</wert>
     </diebsgut>
 </diebsgueter>
