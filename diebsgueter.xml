@@ -8,16 +8,38 @@
         <name>Uhr</name>
         <wert>0.5</wert>
     </diebsgut> 
-   <diebsgut id="3">
+    <diebsgut id="3">
         <name>Kristall</name>
         <wert>35</wert>
     </diebsgut> 
-   <diebsgut id="4">
+    <diebsgut id="4">
         <name>Gold</name>
         <wert>25</wert>
     </diebsgut>  
-  <diebsgut id="5">
+    <diebsgut id="5">
         <name>Bargeld</name>
         <wert>30</wert>
     </diebsgut>
+    <diebsgut id="6">
+        <name>Schmuck</name>
+        <wert>21</wert>
+    </diebsgut>
+    <diebsgut id="7">
+        <name>Dolch</name>
+        <wert>0.8</wert>
+    </diebsgut>
+    <diebsgut id="8">
+        <name>Schwert</name>
+        <wert>23</wert>
+    </diebsgut>
+    <diebsgut id="9">
+        <name>Kreditkarte</name>
+        <wert>11</wert>
+    </diebsgut>
+    <diebsgut id="10">
+        <name>Geldbörse</name>
+        <wert>30.5</wert>
+    </diebsgut>
+
+
 </diebsgueter>
