@@ -1,5 +1,6 @@
 package DiebsgutAufteilung;
 
+import java.util.Random;
 
 public class Verteilung {
 	
@@ -7,11 +8,8 @@ public class Verteilung {
 	Raeuber raeuber2 = new Raeuber(); 
 	Double differenz = 0.0;
 	
-	Verteilung() {
-		differenz = 0.0;
-	}
 
-	Verteilung(Diebsgueter diebsgueter) {
+	public void initialVerteilung(Diebsgueter diebsgueter) {
 		int i = 1;
 		for (Diebsgut stueck: diebsgueter.getDiesbgueter()) {
 			if ((i % 2) == 0) 
@@ -19,6 +17,19 @@ public class Verteilung {
 			else
 				raeuber1.add(stueck);
 			i++;
+		}
+		calculateDifference();
+	}
+	
+	public void randomVerteilung(Diebsgueter diebsgueter) {
+		
+		for (Diebsgut stueck: diebsgueter.getDiesbgueter()) {
+			Random rd = new Random(); // creating Random object
+			if (rd.nextBoolean()) 
+				raeuber2.add(stueck);
+			else
+				raeuber1.add(stueck);
+			
 		}
 	}
 	
@@ -46,12 +57,18 @@ public class Verteilung {
 	
 	public void calculateDifference() {
 		differenz = raeuber1.getWert() - raeuber2.getWert();
+		if (differenz < 0)
+			differenz *= -1;
 	}
 	
 	public void printDifference() {
 		calculateDifference();
 		System.out.println("Differenz:");
 		System.out.println(differenz);
+	}
+	
+	public Double getDifference() {
+		return differenz;
 	}
 	
 }
