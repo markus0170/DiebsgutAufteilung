@@ -13,6 +13,11 @@ public class Raeuber {
 		calculateWert();
 	}
 	
+	public void remove(int index) {
+		diebsgueter.remove(index);
+		calculateWert();
+	}
+	
 	public void print() {
 		for (Diebsgut stueck: diebsgueter)
             System.out.println(stueck.toString());
@@ -33,5 +38,20 @@ public class Raeuber {
 			wert += stueck.getWert();		
 	}
 	
+	public int getSize() {
+		return diebsgueter.size();
+	}
+	
+	public Diebsgut getDiebsgut(int index) {
+		return diebsgueter.get(index);
+	}
+	
+	public Raeuber kopiere() {
+		Raeuber neu = new Raeuber();
+		neu.diebsgueter.addAll(this.diebsgueter);
+		neu.wert = this.wert;
+		
+		return neu;		
+	}
 
 }
