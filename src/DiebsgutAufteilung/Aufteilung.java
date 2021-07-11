@@ -1,5 +1,6 @@
 package DiebsgutAufteilung;
 
+import java.util.Random;
 
 public class Aufteilung {
 	static Diebsgueter initialDiebsgueter;
@@ -21,8 +22,8 @@ public class Aufteilung {
 		
 		besteVerteilung = initialVerteilung.kopiere();
 		
-		double temp = 1000.0;
-		double cooling = 0.5;
+		double temp = 10000.0;
+		double cooling = 0.0005;
 
 // mit zufaelliger veraenderung		
 /*		while (temp > 1) {
@@ -53,8 +54,16 @@ public class Aufteilung {
 			if (neueVerteilung.getDifference() < besteVerteilung.getDifference())
 				besteVerteilung = neueVerteilung.kopiere();
 			
-			temp -= cooling;
-			alteVerteilung = neueVerteilung.kopiere();
+			 // Decide if we should accept the neighbour
+			Random rd = new Random(); // creating Random object
+			double rand = rd.nextDouble();
+            if (alteVerteilung.acceptanceProbability(neueVerteilung, temp) > rand) {
+                alteVerteilung = neueVerteilung.kopiere();
+                
+            }
+            
+			temp *= (1-cooling);
+			
 		} 
 		
 		System.out.println("beste Verteilung");

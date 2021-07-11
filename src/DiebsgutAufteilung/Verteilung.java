@@ -90,4 +90,13 @@ public class Verteilung {
 		return differenz;
 	}
 	
+	public double acceptanceProbability(Verteilung compareVerteilung, double temp) {
+		
+		if (compareVerteilung.getDifference() < this.differenz) {
+			return 1.0;
+		}
+		// If the new solution is worse, calculate an acceptance probability
+		return Math.exp((this.differenz - compareVerteilung.getDifference()) / temp);
+	}
+	
 }
