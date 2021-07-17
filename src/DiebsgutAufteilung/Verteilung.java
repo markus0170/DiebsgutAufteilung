@@ -44,26 +44,26 @@ public class Verteilung {
 		int raeuber2Pos = 0;
 		Random rd = new Random(); // creating Random object
 		raeuber1Pos = rd.nextInt(raeuber1.getSize() + 1);
-		
 		boolean raeuber1move = false;
-		boolean raeuber2move = false;
+		
 		if (raeuber1Pos != raeuber1.getSize()) {
 			raeuber2.add(raeuber1.getDiebsgut(raeuber1Pos));
 			raeuber1.remove(raeuber1.getDiebsgut(raeuber1Pos));
 			raeuber1move = true;
 		}
 		raeuber2Pos = rd.nextInt(raeuber2.getSize() + 1);
+		boolean raeuber2move = false;
 		if (raeuber2Pos != raeuber2.getSize()) {
 			raeuber1.add(raeuber2.getDiebsgut(raeuber2Pos));
 			raeuber2.remove(raeuber2.getDiebsgut(raeuber2Pos));
 			raeuber2move = true;
 		}		
-		/* Debuginfo
+		// Debuginfo
 		if (raeuber1move && !raeuber2move)
 			System.out.println("nur bei 1 weg");
 		if (raeuber2move && !raeuber1move)
 			System.out.println("nur bei 2 weg");
-			*/
+			
 	}
 	
 	public Verteilung kopiere()
