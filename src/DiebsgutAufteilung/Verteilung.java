@@ -10,12 +10,18 @@ public class Verteilung {
 	
 
 	public void initialVerteilung(Diebsgueter diebsgueter) {
+		// optimize by checking which raeuber is having less value and provide the item to this raeuber
 		int i = 1;
 		for (Diebsgut stueck: diebsgueter.getDiesbgueter()) {
-			if ((i % 2) == 0) 
-				raeuber2.add(stueck);
-			else
+			if (i == 1) 
 				raeuber1.add(stueck);
+			else
+			{
+				if (raeuber1.getWert() > raeuber2.getWert())
+					raeuber2.add(stueck);
+				else
+					raeuber1.add(stueck);
+			}
 			i++;
 		}
 		calculateDifference();
@@ -37,19 +43,27 @@ public class Verteilung {
 		int raeuber1Pos = 0;
 		int raeuber2Pos = 0;
 		Random rd = new Random(); // creating Random object
-		while (raeuber1Pos == raeuber2Pos) { // make sure Pos1 and Pos2 are diferent
-			raeuber1Pos = rd.nextInt(raeuber1.getSize() + 1);
-			raeuber2Pos = rd.nextInt(raeuber2.getSize() + 1);
-		}
+		raeuber1Pos = rd.nextInt(raeuber1.getSize() + 1);
+		
+		boolean raeuber1move = false;
+		boolean raeuber2move = false;
 		if (raeuber1Pos != raeuber1.getSize()) {
 			raeuber2.add(raeuber1.getDiebsgut(raeuber1Pos));
-			raeuber1.remove(raeuber1Pos);
+			raeuber1.remove(raeuber1.getDiebsgut(raeuber1Pos));
+			raeuber1move = true;
 		}
-		
+		raeuber2Pos = rd.nextInt(raeuber2.getSize() + 1);
 		if (raeuber2Pos != raeuber2.getSize()) {
 			raeuber1.add(raeuber2.getDiebsgut(raeuber2Pos));
-			raeuber2.remove(raeuber2Pos);
+			raeuber2.remove(raeuber2.getDiebsgut(raeuber2Pos));
+			raeuber2move = true;
 		}		
+		/* Debuginfo
+		if (raeuber1move && !raeuber2move)
+			System.out.println("nur bei 1 weg");
+		if (raeuber2move && !raeuber1move)
+			System.out.println("nur bei 2 weg");
+			*/
 	}
 	
 	public Verteilung kopiere()
@@ -82,7 +96,7 @@ public class Verteilung {
 	
 	public void printDifference() {
 		calculateDifference();
-		System.out.println("Differenz:");
+		System.out.println("Differenz");
 		System.out.println(differenz);
 	}
 	
@@ -96,6 +110,7 @@ public class Verteilung {
 			return 1.0;
 		}
 		// If the new solution is worse, calculate an acceptance probability
+		System.out.println(Math.exp((this.differenz - compareVerteilung.getDifference()) / temp));
 		return Math.exp((this.differenz - compareVerteilung.getDifference()) / temp);
 	}
 	

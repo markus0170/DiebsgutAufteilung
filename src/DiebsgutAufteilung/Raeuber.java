@@ -13,8 +13,8 @@ public class Raeuber {
 		calculateWert();
 	}
 	
-	public void remove(int index) {
-		diebsgueter.remove(index);
+	public void remove(Diebsgut diebsgut) {
+		diebsgueter.remove(diebsgut);
 		calculateWert();
 	}
 	

@@ -22,7 +22,7 @@ public class Aufteilung {
 		
 		besteVerteilung = initialVerteilung.kopiere();
 		
-		double temp = 10000.0;
+		double temp = initialVerteilung.getDifference();
 		double cooling = 0.0005;
 
 // mit zufaelliger veraenderung		
@@ -42,11 +42,17 @@ public class Aufteilung {
 		
 // mit Permutation von der letzten verteilung
 	Verteilung alteVerteilung = besteVerteilung.kopiere();
-		while (temp > 1) {
+	int count = 0;
+		while ((temp > 1) && (count < 10000)) {
 			Verteilung neueVerteilung = new Verteilung();
 			neueVerteilung = alteVerteilung.kopiere();
 			neueVerteilung.permutationVerteilung();
-			System.out.println("neue Verteilung");
+			if ((neueVerteilung.raeuber1.getWert() == alteVerteilung.raeuber1.getWert())
+				&& (neueVerteilung.raeuber2.getWert() == alteVerteilung.raeuber2.getWert())) {
+				System.out.println("Nix getauscht");
+			}
+			else {	
+			System.out.println("neue Verteilung der Räuber");
 			neueVerteilung.printRaeuber1();
 			neueVerteilung.printRaeuber2();
 			neueVerteilung.printDifference();
@@ -57,13 +63,14 @@ public class Aufteilung {
 			 // Decide if we should accept the neighbour
 			Random rd = new Random(); // creating Random object
 			double rand = rd.nextDouble();
-            if (alteVerteilung.acceptanceProbability(neueVerteilung, temp) > rand) {
+            if (alteVerteilung.acceptanceProbability(neueVerteilung, temp) < rand) {
+            	System.out.println("neue Verteilung akzeptiert");
                 alteVerteilung = neueVerteilung.kopiere();
-                
+                // only decrease temp if neueVerteilung is taken
+                temp *= (1-cooling);
             }
-            
-			temp *= (1-cooling);
-			
+			}
+            count++;
 		} 
 		
 		System.out.println("beste Verteilung");
