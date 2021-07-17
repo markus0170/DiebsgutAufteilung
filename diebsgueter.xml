@@ -6,7 +6,7 @@
     </diebsgut>
     <diebsgut id="2">
         <name>Uhr</name>
-        <wert>0.5</wert>
+        <wert>0.7</wert>
     </diebsgut> 
     <diebsgut id="3">
         <name>Kristall</name>
@@ -40,6 +40,65 @@
         <name>Geldbörse</name>
         <wert>30.5</wert>
     </diebsgut>
-
+    <diebsgut id="11">
+        <name>Auto</name>
+        <wert>46</wert>
+    </diebsgut>
+    <diebsgut id="12">
+        <name>Fahrrad</name>
+        <wert>8</wert>
+    </diebsgut>
+    <diebsgut id="13">
+        <name>Gegenstand 13</name>
+        <wert>13</wert>
+    </diebsgut>
+    <diebsgut id="14">
+        <name>Gegenstand 14</name>
+        <wert>14</wert>
+    </diebsgut>    
+    <diebsgut id="15">
+        <name>Gegenstand 15</name>
+        <wert>15</wert>
+    </diebsgut>
+    <diebsgut id="16">
+        <name>Gegenstand 16</name>
+        <wert>16</wert>
+    </diebsgut>
+    <diebsgut id="17">
+        <name>Gegenstand 17</name>
+        <wert>17</wert>
+    </diebsgut>
+    <diebsgut id="18">
+        <name>Gegenstand 18</name>
+        <wert>18</wert>
+    </diebsgut>
+    <diebsgut id="19">
+        <name>Gegenstand 19</name>
+        <wert>19</wert>
+    </diebsgut>
+    <diebsgut id="20">
+        <name>Gegenstand 20</name>
+        <wert>20</wert>
+    </diebsgut>
+    <diebsgut id="21">
+        <name>Gegenstand 21</name>
+        <wert>21</wert>
+    </diebsgut>
+    <diebsgut id="22">
+        <name>Gegenstand 22</name>
+        <wert>22</wert>
+    </diebsgut>
+    <diebsgut id="23">
+        <name>Gegenstand 23</name>
+        <wert>23</wert>
+    </diebsgut>
+    <diebsgut id="24">
+        <name>Gegenstand 24</name>
+        <wert>24</wert>
+    </diebsgut>
+    <diebsgut id="25">
+        <name>Gegenstand 25</name>
+        <wert>25</wert>
+    </diebsgut>
 
 </diebsgueter>
