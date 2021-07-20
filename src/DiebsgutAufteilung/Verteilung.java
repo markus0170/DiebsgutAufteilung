@@ -107,11 +107,11 @@ public class Verteilung {
 	public double acceptanceProbability(Verteilung compareVerteilung, double temp) {
 		
 		if (compareVerteilung.getDifference() < this.differenz) {
-			return 1.0;
+			return 1.0; // so compareVerteilung is always taken as alteVerteilung
 		}
 		// If the new solution is worse, calculate an acceptance probability
-		System.out.println(Math.exp((this.differenz - compareVerteilung.getDifference()) / temp));
-		return Math.exp((this.differenz - compareVerteilung.getDifference()) / temp);
+		System.out.println("acceptance: " + Math.exp((this.differenz - compareVerteilung.getDifference()) / temp));
+		return Math.exp(((this.differenz - compareVerteilung.getDifference()) / temp));
 	}
 	
 }

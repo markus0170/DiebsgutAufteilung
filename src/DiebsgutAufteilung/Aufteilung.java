@@ -8,9 +8,14 @@ public class Aufteilung {
 	static Verteilung besteVerteilung;
 	
 	public static void main(String[] args) {
-
+		if (args.length >=1) {
+            if (args[0].equals("generate")) {
+            	XMLFiles generierteXMLFiles = new XMLFiles(1);
+            	
+            }
+        }
 	
-		initialDiebsgueter = new Diebsgueter("diebsgueter.xml");
+		initialDiebsgueter = new Diebsgueter("coolediebsgueter4.xml");
 		System.out.println("Diebsgutliste");
 		initialDiebsgueter.printData();
 		
@@ -43,7 +48,7 @@ public class Aufteilung {
 // mit Permutation von der letzten verteilung
 	Verteilung alteVerteilung = besteVerteilung.kopiere();
 	int count = 0;
-		while ((temp > 1) && (count < 10000)) {
+		while ((temp > 1) && (count < 1000)) {
 			Verteilung neueVerteilung = new Verteilung();
 			neueVerteilung = alteVerteilung.kopiere();
 			neueVerteilung.permutationVerteilung();
@@ -52,13 +57,16 @@ public class Aufteilung {
 			neueVerteilung.printRaeuber2();
 			neueVerteilung.printDifference();
 			
-			if (neueVerteilung.getDifference() < besteVerteilung.getDifference())
+			if (neueVerteilung.getDifference() < besteVerteilung.getDifference()) {
+				System.out.println("beste Verteilung akzeptiert");
 				besteVerteilung = neueVerteilung.kopiere();
+			}
 			
 			 // Decide if we should accept the neueVerteilung
 			Random rd = new Random(); // creating Random object
-			double rand = rd.nextDouble();
-            if (alteVerteilung.acceptanceProbability(neueVerteilung, temp) < rand) {
+			double rand = rd.nextDouble(); // creates random double between 0 and 1
+			// keep neueVerteilung as alteVerteilung if the probability > the random double
+            if (alteVerteilung.acceptanceProbability(neueVerteilung, temp) > rand) {
             	System.out.println("neue Verteilung akzeptiert");
                 alteVerteilung = neueVerteilung.kopiere();
                 // only decrease temp if neueVerteilung is taken

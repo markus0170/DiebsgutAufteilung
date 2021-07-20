@@ -22,4 +22,7 @@ public class Diebsgut {
 		return this.wert;
 	}
 		
+	public String getName() {
+		return this.diebsgutName;
+	}
 }
